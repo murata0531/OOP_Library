@@ -4,7 +4,7 @@
 
 PHP 8.0
 
-MySQL 5.7
+MySQL 8.0
 
 Redis
 
