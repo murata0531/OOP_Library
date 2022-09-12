@@ -12,7 +12,7 @@ unzip \
 vim \
 libpng-dev \
 libpq-dev \
-&& docker-php-ext-install pdo_mysql
+&& docker-php-ext-install pdo_mysql mysqli
 # npmのインストール
 RUN curl -SL https://deb.nodesource.com/setup_16.x | bash
 RUN apt-get install -y nodejs
