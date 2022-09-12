@@ -10,7 +10,7 @@ services:
   tty: true
 
  db:
-  image: mysql:5.7
+  build: ./docker/db
   environment:
    MYSQL_ROOT_PASSWORD: root
    MYSQL_DATABASE: test_db
