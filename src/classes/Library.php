@@ -26,11 +26,12 @@ class Library extends Database {
         $sql = "SELECT * FROM books";
         $result = $this->conn->query($sql);
 
+        $this->conn->close();
+
         if($result->num_rows > 0){
             $container = array();
             while($row = $result->fetch_assoc()){
                 $container[] = $row;
-
             }
 
             return $container;
@@ -42,9 +43,11 @@ class Library extends Database {
 
     public function delete_book($id){
         $sql ="DELETE FROM books WHERE book_id = '$id'";
-        $return = $this->conn->query($sql);
+        $result = $this->conn->query($sql);
 
-        if($return == TRUE){
+        $this->conn->close();
+
+        if($result == TRUE){
             header('location:Read.php');
         }else{
             die('ERROR: '.$this->conn->error);
@@ -55,6 +58,8 @@ class Library extends Database {
         $sql = "SELECT * FROM books WHERE book_id = '$id'";
         $result = $this->conn->query($sql);
 
+        $this->conn->close();
+        
         if($result == FALSE){
             echo "no data found";
         }else{
